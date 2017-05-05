@@ -10,6 +10,10 @@ module.exports = {
     './app/index.js'
   ],
 
+  resolve: {
+      extensions: ['.js', '.css']
+  },
+
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
