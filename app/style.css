@@ -1,8 +1,28 @@
 body {
   background-color: #e5e5e5;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1200px;
+}
+
+.languageUL {
+  display: flex;
+  justify-content: center;
+}
+
+.languageUL li {
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px;
 }
