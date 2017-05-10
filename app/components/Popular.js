@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import fetchPopularRepos from '../utils/api';
 
 function SelectedLanguage(props) {
 
@@ -42,6 +43,10 @@ class Popular extends React.Component {
 
     // always call in correct context; this component; only for eventHandlers
     this.updateLanguage = this.updateLanguage.bind(this);
+  }
+
+  componentDidMount() {
+    fetchPopularRepos('Java');
   }
 
   updateLanguage(event) {
