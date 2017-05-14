@@ -14,7 +14,7 @@ function SelectedLanguage(props) {
       return (<li
                 data-lang={language}
                 key={language}
-                onClick={props.onSelect}
+                onClick={props.onSelect.bind(null, language)}
                 style={language === props.selectedLanguage ? { color: '#D0021b' } : null }>
                 {language}
             </li>);
@@ -38,7 +38,8 @@ class Popular extends React.Component {
     super(props);
 
     this.state = {
-      selectedLanguage: 'All'
+      selectedLanguage: 'All',
+      repos: null
     };
 
     // always call in correct context; this component; only for eventHandlers
@@ -46,11 +47,20 @@ class Popular extends React.Component {
   }
 
   componentDidMount() {
-    fetchPopularRepos('Java');
+    this.updateLanguage(this.state.selectedLanguage);
   }
 
-  updateLanguage(event) {
-    this.setState({ selectedLanguage: event.currentTarget.dataset.lang });
+  updateLanguage(lang) {
+
+    // reset repos
+    this.setState({
+      selectedLanguage: lang,
+      repos: null
+    });
+
+    fetchPopularRepos(lang).then((repos) => {
+      this.setState({ repos });
+    });
   }
 
   render() {
