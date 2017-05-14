@@ -63,6 +63,10 @@ SelectedLanguage.propTypes = {
   onSelect: PropTypes.func.isRequired
 }
 
+ReposGrid.propTypes = {
+  repos: PropTypes.array.isRequired
+}
+
 class Popular extends React.Component {
 
   constructor(props) {
