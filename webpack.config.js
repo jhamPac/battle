@@ -11,7 +11,7 @@ module.exports = {
   ],
 
   resolve: {
-      extensions: ['.js', '.css']
+      extensions: ['.js', '.css', '.jsx']
   },
 
   output: {
@@ -26,7 +26,8 @@ module.exports = {
          use: {
            loader: 'babel-loader',
            options: {
-              presets: ['env', 'react']
+              presets: ['es2015', 'react'],
+              plugins: [require('babel-plugin-transform-class-properties')]
             }
           }
         },
