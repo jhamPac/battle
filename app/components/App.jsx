@@ -1,16 +1,17 @@
 import React from 'react';
 import Popular from './Popular';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-class App extends React.Component {
+export default class App extends React.Component {
 
   render() {
 
     return (
-      <div className="container">
-        <Popular/>
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <Route path='/popular' component={Popular} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
-
-export default App;

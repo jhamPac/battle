@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import fetchPopularRepos from '../utils/api';
 
-function SelectedLanguage(props) {
+let SelectedLanguage = (props) => {
 
   let languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
 
@@ -25,9 +25,9 @@ function SelectedLanguage(props) {
     </ul>
   );
 
-}
+};
 
-function ReposGrid(props) {
+let ReposGrid = (props) => {
 
   return (
     <ul className="popular-list">
@@ -55,19 +55,19 @@ function ReposGrid(props) {
     </ul>
   );
 
-}
+};
 
 // rules for what you pass in the props
 SelectedLanguage.propTypes = {
   selectedLanguage: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired
-}
+};
 
 ReposGrid.propTypes = {
   repos: PropTypes.array.isRequired
-}
+};
 
-class Popular extends React.Component {
+export default class Popular extends React.Component {
 
   constructor(props) {
     super(props);
@@ -111,5 +111,3 @@ class Popular extends React.Component {
     );
   }
 }
-
-export default Popular;
