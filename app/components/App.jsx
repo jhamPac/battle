@@ -2,14 +2,14 @@ import React    from 'react';
 import { Home } from './Home';
 import { Nav }  from './Nav';
 import Popular  from './Popular';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 export default class App extends React.Component {
 
   render() {
 
     return (
-      <BrowserRouter>
+      <Router>
         <div className="container">
 
           <Nav />
@@ -21,9 +21,9 @@ export default class App extends React.Component {
                 return <p>404 Not Found</p>
               }} />
           </Switch>
-          
+
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
