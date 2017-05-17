@@ -1,6 +1,8 @@
-import React from 'react';
-import Popular from './Popular';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import React    from 'react';
+import { Home } from './Home';
+import { Nav }  from './Nav';
+import Popular  from './Popular';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 
 export default class App extends React.Component {
 
@@ -9,7 +11,17 @@ export default class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <Route path='/popular' component={Popular} />
+
+          <Nav />
+
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/popular' component={Popular} />
+            <Route render={function() {
+                return <p>404 Not Found</p>
+              }} />
+          </Switch>
+          
         </div>
       </BrowserRouter>
     );
