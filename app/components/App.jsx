@@ -2,6 +2,7 @@ import React    from 'react';
 import { Home } from './Home';
 import { Nav }  from './Nav';
 import Popular  from './Popular';
+import Battle   from './Battle';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 export default class App extends React.Component {
@@ -16,7 +17,7 @@ export default class App extends React.Component {
 
           <Switch>
             <Route exact path='/' component={ Home } />
-            
+            <Route exact path='/battle' component={ Battle } />
             <Route path='/popular' component={ Popular } />
             <Route render={function() {
                 return <p>404 Not Found</p>
