@@ -16,7 +16,7 @@ export default class App extends React.Component {
 
           <Switch>
             <Route exact path='/' component={ Home } />
-            <Route exact path='/battle' component={ Battle }
+            
             <Route path='/popular' component={ Popular } />
             <Route render={function() {
                 return <p>404 Not Found</p>
