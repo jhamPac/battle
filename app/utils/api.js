@@ -42,12 +42,12 @@ function sortPlayers(players) {
   });
 }
 
-function handleErros(error) {
+function handleError(error) {
   console.warn(error);
   return null;
 }
 
-export function getUserData(player) {
+function getUserData(player) {
   return axios.all([
     getProfile(player),
     getRepos(player)
@@ -60,6 +60,12 @@ export function getUserData(player) {
       score: calculateScore(profile, repos)
     }
   });
+}
+
+export function battle(players) {
+  return axios.all(players.map(getUserData))
+      .then(sortPlayers)
+      .catch(handleError);
 }
 
 export default fetchPopularRepos;

@@ -1,10 +1,8 @@
 import React          from 'react';
 import { Link }       from 'react-router-dom';
-import { getUserData } from '../utils/api';
+import { battle } from '../utils/api';
 
 export let Home = (props) => {
-
-  
 
   return (
     <div className='home-container'>
