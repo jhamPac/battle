@@ -1,6 +1,5 @@
-import React          from 'react';
-import { Link }       from 'react-router-dom';
-import { battle } from '../utils/api';
+import React    from 'react';
+import { Link } from 'react-router-dom';
 
 export let Home = (props) => {
 
