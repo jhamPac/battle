@@ -23,4 +23,43 @@ function getRepos(username) {
     });
 }
 
+function getStarCount(repos) {
+  return repos.reduce(function(count, repo) {
+    return count + repo.stargazers_count;
+  }, 0);
+}
+
+function calculateScore(profile, repos) {
+  let followers = profile.followers;
+  let totalStars = getStarCount(repos);
+
+  return ( followers * 3 ) + totalStars;
+}
+
+function sortPlayers(players) {
+  return players.sort(function(a, b) {
+    return b.score - a.score;
+  });
+}
+
+function handleErros(error) {
+  console.warn(error);
+  return null;
+}
+
+export function getUserData(player) {
+  return axios.all([
+    getProfile(player),
+    getRepos(player)
+  ]).then(function (data) {
+    let profile = data[0];
+    let repos = data[1];
+
+    return {
+      profile: profile,
+      score: calculateScore(profile, repos)
+    }
+  });
+}
+
 export default fetchPopularRepos;
