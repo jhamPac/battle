@@ -1,25 +1,6 @@
-import React    from 'react';
-import { Link } from 'react-router-dom';
-
-let PlayerPreview = (props) => {
-
-  return (
-    <div>
-      <div className="column">
-        <img
-          className="avatar"
-          src={ props.avatar }
-          alt={ `Avatar for ${props.username}` }
-        />
-      <h2 className="username">@{props.username}</h2>
-      </div>
-      <button className='reset' onClick={props.onReset.bind(null, props.id)}>
-        Reset
-      </button>
-    </div>
-  );
-
-};
+import React         from 'react';
+import { Link }      from 'react-router-dom';
+import PlayerPreview from './PlayerPreview';
 
 class PlayerInput extends React.Component {
 
@@ -130,8 +111,13 @@ export default class Battle extends React.Component {
               avatar={playerOneImage}
               username={playerOneName}
               onReset={this.handleReset}
-              id='playerOne'
-            />}
+              id='playerOne'>
+              <button
+                className='reset'
+                onClick={() => this.handleReset('playerOne')}>
+                Reset
+              </button>
+            </PlayerPreview>}
 
           {!playerTwoName &&
             <PlayerInput
@@ -145,8 +131,13 @@ export default class Battle extends React.Component {
               avatar={playerTwoImage}
               username={playerTwoName}
               onReset={this.handleReset}
-              id='playerTwo'
-            />}
+              id='playerTwo'>
+              <button
+                className='reset'
+                onClick={() => this.handleReset('playerTwo')}>
+                Reset
+              </button>
+            </PlayerPreview>}
         </div>
 
         {playerOneImage && playerTwoImage &&
